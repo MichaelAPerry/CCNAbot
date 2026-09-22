@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import json
 import pathlib
+import uuid
 import sqlite3
 from datetime import date, datetime, timezone
 from typing import Iterable, Iterator
@@ -193,6 +194,79 @@ class EventLog:
             "SELECT DISTINCT student_id FROM observations ORDER BY student_id"
         )
         return [r[0] for r in rows]
+
+    # -- console sessions -------------------------------------------------
+
+    def open_console_session(
+        self,
+        student_id: str,
+        rack_id: str,
+        device: str,
+        transcript: str | None = None,
+        pid: int | None = None,
+        started_at: datetime | None = None,
+    ) -> str:
+        """Record that a student has attached to a device. Returns session id."""
+        session_id = str(uuid.uuid4())
+        self._conn.execute(
+            """INSERT INTO console_sessions
+               (session_id, student_id, rack_id, device, started_at, transcript, pid)
+               VALUES (?, ?, ?, ?, ?, ?, ?)""",
+            (
+                session_id, student_id, rack_id, device.upper(),
+                (started_at or datetime.now(timezone.utc)).astimezone(timezone.utc).isoformat(),
+                transcript, pid,
+            ),
+        )
+        self._conn.commit()
+        return session_id
+
+    def close_console_session(
+        self, session_id: str, ended_at: datetime | None = None
+    ) -> None:
+        self._conn.execute(
+            "UPDATE console_sessions SET ended_at = ? WHERE session_id = ? AND ended_at IS NULL",
+            (
+                (ended_at or datetime.now(timezone.utc)).astimezone(timezone.utc).isoformat(),
+                session_id,
+            ),
+        )
+        self._conn.commit()
+
+    def open_sessions(self, rack_id: str | None = None) -> list[sqlite3.Row]:
+        sql = "SELECT * FROM console_sessions WHERE ended_at IS NULL"
+        args: list[object] = []
+        if rack_id is not None:
+            sql += " AND rack_id = ?"
+            args.append(rack_id)
+        return list(self._conn.execute(sql + " ORDER BY started_at", args))
+
+    def devices_in_use(self, rack_id: str) -> set[str]:
+        """Devices the assistant must leave alone right now."""
+        return {r["device"] for r in self.open_sessions(rack_id)}
+
+    def console_history(self, student_id: str) -> list[sqlite3.Row]:
+        return list(self._conn.execute(
+            "SELECT * FROM console_sessions WHERE student_id = ? ORDER BY started_at",
+            (student_id,),
+        ))
+
+    def reap_stale_sessions(self, rack_id: str) -> int:
+        """Close sessions whose process is gone.
+
+        A student whose SSH connection drops leaves the row open, and the
+        assistant would avoid that device forever. Only safe for sessions
+        recorded on this machine, since pids are local to it.
+        """
+        closed = 0
+        for row in self.open_sessions(rack_id):
+            pid = row["pid"]
+            if pid is None:
+                continue
+            if not pathlib.Path(f"/proc/{pid}").exists():
+                self.close_console_session(row["session_id"])
+                closed += 1
+        return closed
 
     # -- sync ------------------------------------------------------------
 

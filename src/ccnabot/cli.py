@@ -21,6 +21,9 @@ from .domain.competency import Modality
 from .domain.events import EventKind, Outcome
 from .domain.mastery import LearnerRecord
 from .drills import subnetting
+from .rack import console as console_mod
+from .rack import udev as udev_mod
+from .rack.inventory import build_rack, load_rack
 from .loader import calendar, catalog
 from .scheduling.retention import RetentionScheduler, Urgency
 from .store.eventlog import EventLog
@@ -42,6 +45,22 @@ def open_log(args) -> EventLog:
     if str(path) != ":memory:":
         path.parent.mkdir(parents=True, exist_ok=True)
     return EventLog(path, source=rack_id())
+
+
+RACK_CONFIG = pathlib.Path("/etc/ccnabot/rack.yaml")
+
+
+def load_local_rack():
+    """The rack this PC is wired to.
+
+    Falls back to an unwired rack so `rack discover` and `rack udev` work on
+    a machine that has not been configured yet -- which is exactly when they
+    are needed.
+    """
+    path = pathlib.Path(os.environ.get("CCNABOT_RACK_CONFIG", RACK_CONFIG))
+    if path.exists():
+        return load_rack(path)
+    return build_rack(rack_id())
 
 
 def whoami(args) -> str:
@@ -77,6 +96,106 @@ def cmd_status(args) -> int:
     never = cal.never_taught(c.id for c in cat)
     print(f"\nGrid: {len(cat)} live tasks, {len(never)} never retaught this year "
           f"(prior-year content, still on NOCTI)")
+    return 0
+
+
+# -- console -------------------------------------------------------------
+
+def cmd_console(args) -> int:
+    student, rack = whoami(args), load_local_rack()
+    with open_log(args) as log:
+        log.reap_stale_sessions(rack.id)
+        try:
+            return console_mod.attach(
+                rack, args.device, student, log,
+                record_transcript=not args.no_record,
+                terminal=args.terminal,
+            )
+        except console_mod.ConsoleUnavailable as exc:
+            print(f"error: {exc}", file=sys.stderr)
+            return 1
+
+
+# -- rack ----------------------------------------------------------------
+
+def cmd_rack_status(args) -> int:
+    rack = load_local_rack()
+    with open_log(args) as log:
+        log.reap_stale_sessions(rack.id)
+        busy = {r["device"]: r["student_id"] for r in log.open_sessions(rack.id)}
+
+    print(f"{rack.id} - {len(rack)} devices, {len(rack.cabled)} cabled\n")
+    print(f"{'device':<7}{'model':<22}{'console':<28}{'state':<12}who")
+    print("-" * 82)
+    for device in rack:
+        if not device.serial:
+            print(f"{device.name:<7}{device.model:<22}{'(no cable registered)':<28}"
+                  f"{'-':<12}")
+            continue
+        node = rack.console(device.name)
+        state = console_mod.probe(node)
+        who = busy.get(device.name.upper(), "")
+        label = "in use" if who else state.state.value
+        shown = str(node)
+        if len(shown) > 27:
+            shown = "..." + shown[-24:]
+        print(f"{device.name:<7}{device.model:<22}{shown:<28}{label:<12}{who}")
+
+    if rack.uncabled:
+        print(f"\n{len(rack.uncabled)} device(s) not yet cabled: "
+              f"{', '.join(d.name for d in rack.uncabled)}")
+    return 0
+
+
+def cmd_rack_discover(args) -> int:
+    adapters = udev_mod.discover()
+    if not adapters:
+        print("No USB-serial adapters found.")
+        print("Check the hub is powered and the cables are seated.")
+        return 1
+
+    print(f"{len(adapters)} adapter(s) attached:\n")
+    print(f"{'tty':<10}{'serial':<20}{'vendor':<9}description")
+    print("-" * 70)
+    for a in adapters:
+        vendor = "FTDI" if a.is_ftdi else (a.vendor or "?")
+        print(f"{a.tty:<10}{(a.serial or '(none)'):<20}{vendor:<9}{a.description}")
+
+    dupes = udev_mod.duplicate_serials(adapters)
+    if dupes:
+        print("\nWARNING: duplicate serial numbers found:")
+        for serial, ttys in dupes.items():
+            print(f"  {serial}: {', '.join(ttys)}")
+        print("These adapters cannot be pinned to stable names, and the")
+        print("assistant would confuse the devices behind them. Counterfeit")
+        print("FTDI chips commonly share one serial -- replace them.")
+        return 1
+
+    unpinnable = [a for a in adapters if not a.pinnable]
+    if unpinnable:
+        print(f"\nWARNING: {len(unpinnable)} adapter(s) report no serial number "
+              "and cannot be pinned.")
+        return 1
+
+    print("\nAll adapters carry unique serials and can be pinned.")
+    print("Record which device each is plugged into, then put them in")
+    print(f"{RACK_CONFIG} and run: ccnabot rack udev")
+    return 0
+
+
+def cmd_rack_udev(args) -> int:
+    rack = load_local_rack()
+    if not rack.cabled:
+        print(f"No console adapters registered for {rack.id}.", file=sys.stderr)
+        print(f"Run 'ccnabot rack discover', then list the serials in "
+              f"{RACK_CONFIG}.", file=sys.stderr)
+        return 1
+    text = udev_mod.rules_for(rack, group=args.group)
+    if args.output:
+        pathlib.Path(args.output).write_text(text)
+        print(f"wrote {args.output} ({len(rack.cabled)} device(s))")
+    else:
+        print(text, end="")
     return 0
 
 
@@ -263,6 +382,26 @@ def build_parser() -> argparse.ArgumentParser:
     a.add_argument("--instructor")
     a.add_argument("--revoke", action="store_true")
     a.set_defaults(func=cmd_attest)
+
+    c = sub.add_parser("console", help="attach to a device console")
+    c.add_argument("device", help="device name, e.g. r1 or sw2")
+    c.add_argument("--no-record", action="store_true", help="do not save a transcript")
+    c.add_argument("--terminal", choices=[t.name for t in console_mod.KNOWN_TERMINALS])
+    c.set_defaults(func=cmd_console)
+
+    rk = sub.add_parser("rack", help="rack setup and status")
+    rksub = rk.add_subparsers(dest="rack_command", required=True)
+
+    rs = rksub.add_parser("status", help="devices, consoles and who is on them")
+    rs.set_defaults(func=cmd_rack_status)
+
+    rd = rksub.add_parser("discover", help="list attached USB-serial adapters")
+    rd.set_defaults(func=cmd_rack_discover)
+
+    ru = rksub.add_parser("udev", help="generate console pinning rules")
+    ru.add_argument("-o", "--output")
+    ru.add_argument("--group", default="dialout")
+    ru.set_defaults(func=cmd_rack_udev)
 
     rep = sub.add_parser("report", help="the signed competency task list")
     rep.add_argument("--evidence", action="store_true", help="show what each mark rests on")

@@ -55,3 +55,47 @@ BEFORE DELETE ON observations
 BEGIN
     SELECT RAISE(ABORT, 'observations are append-only: append a revocation instead');
 END;
+
+-- Console sessions: who is at which device, and when.
+--
+-- Deliberately separate from `observations`. A console attach is activity,
+-- not assessment evidence: it carries no judgement and is not keyed to a
+-- competency. Folding it into the task-keyed evidence log would have made
+-- every attach look like a failed attempt. Same append-only, merge-by-uuid
+-- properties, different entity.
+--
+-- The assistant reads open sessions to know which port to leave alone, which
+-- is exact -- unlike inspecting other users' file descriptors, which an
+-- unprivileged process cannot do.
+CREATE TABLE IF NOT EXISTS console_sessions (
+    session_id  TEXT PRIMARY KEY,       -- UUID
+    student_id  TEXT NOT NULL,
+    rack_id     TEXT NOT NULL,
+    device      TEXT NOT NULL,          -- R1, SW2, ...
+    started_at  TEXT NOT NULL,          -- ISO 8601 UTC
+    ended_at    TEXT,                   -- NULL while the session is open
+    transcript  TEXT,                   -- path to the captured typescript
+    pid         INTEGER
+);
+
+CREATE INDEX IF NOT EXISTS sess_open   ON console_sessions (rack_id, ended_at);
+CREATE INDEX IF NOT EXISTS sess_student ON console_sessions (student_id, started_at);
+
+-- Only the close is mutable, and only once: a session that has ended cannot
+-- be reopened, moved, or reattributed to another student.
+CREATE TRIGGER IF NOT EXISTS console_sessions_close_only
+BEFORE UPDATE ON console_sessions
+BEGIN
+    SELECT RAISE(ABORT, 'console sessions may only be closed')
+    WHERE OLD.ended_at IS NOT NULL
+       OR NEW.student_id <> OLD.student_id
+       OR NEW.rack_id    <> OLD.rack_id
+       OR NEW.device     <> OLD.device
+       OR NEW.started_at <> OLD.started_at;
+END;
+
+CREATE TRIGGER IF NOT EXISTS console_sessions_no_delete
+BEFORE DELETE ON console_sessions
+BEGIN
+    SELECT RAISE(ABORT, 'console sessions are append-only');
+END;
