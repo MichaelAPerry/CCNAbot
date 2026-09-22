@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+
+# Local observation stores. Student data: never commit these.
+*.db
+*.db-wal
+*.db-shm

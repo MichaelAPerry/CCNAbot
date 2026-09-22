@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ccnabot"
+version = "0.1.0"
+description = "Rack assistant for a CCNA/Network+ lab: helps students at the bench, reports what it saw to the instructor."
+requires-python = ">=3.11"
+dependencies = [
+    "PyYAML>=6.0",
+    "fsrs>=6.0",
+]
+
+[project.optional-dependencies]
+# Added when the rack layer lands.
+rack = ["netmiko>=4.3", "ntc-templates>=4.0"]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+ccnabot = "ccnabot.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+ccnabot = ["data/*.yaml", "store/*.sql"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

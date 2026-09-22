@@ -1,0 +1,415 @@
+# CIP 11.0901 Competency Task List - Computer Systems Networking
+# and Telecommunications. Secondary Component.
+#
+# GENERATED FILE - do not hand-edit.
+# Regenerate with: python3 tools/build_competencies.py
+#
+# Task ids and titles are verbatim from the PDE task list and are the
+# primary keys for the whole system. `modality` is our editorial layer:
+# what can produce evidence for the task. See docs/modality.md.
+
+sections:
+  '100': "Personal and Environmental Safety"
+  '200': "Computer Hardware"
+  '300': "Troubleshooting, Repair and Maintenance"
+  '400': "Operating Systems and Software"
+  '500': "Network Technologies"
+  '600': "Network Media and Topologies"
+  '700': "Network Devices"
+  '800': "Network Management"
+  '900': "Network Tools and Troubleshooting"
+  '1000': "Security Fundamentals"
+  '1100': "Communication and Professionalism"
+
+tasks:
+  - id: '101'
+    section: '100'
+    title: "List common causes of accidents and injuries in a computer facility."
+    modality: [recall]
+  - id: '102'
+    section: '100'
+    title: "Wear personal protective equipment."
+    modality: [attest]
+  - id: '103'
+    section: '100'
+    title: "List and identify safety hazard symbols."
+    modality: [recall]
+  - id: '104'
+    section: '100'
+    title: "Review Safety Data Sheets (SDS) and explain their requirements in handling hazardous materials."
+    modality: [recall]
+  - id: '105'
+    section: '100'
+    title: "Describe types of fire extinguishers and explain which types to use for extinguishing various fires."
+    modality: [recall]
+  - id: '106'
+    section: '100'
+    title: "Use safe procedures to follow when lifting and carrying heavy objects."
+    modality: [attest]
+  - id: '107'
+    section: '100'
+    title: "Describe the importance of safety as it relates to environmental issues."
+    modality: [recall]
+  - id: '108'
+    section: '100'
+    title: "Identify potential hazards when working with power supplies."
+    modality: [recall]
+  - id: '109'
+    section: '100'
+    title: "Identify proper disposal procedures for batteries, display devices, and all other electronic equipment."
+    modality: [recall]
+  - id: '110'
+    section: '100'
+    title: "Identify proper disposal procedures for chemical solvents and pressurized cans."
+    modality: [recall]
+  - id: '111'
+    section: '100'
+    title: "Prevent electrostatic discharge conditions."
+    modality: [attest]
+  - id: '112'
+    section: '100'
+    reserved: true
+    title: null
+    modality: []
+  - id: '113'
+    section: '100'
+    title: "Configure a computer's power management settings to maximize energy efficiency."
+    modality: [host]
+  - id: '114'
+    section: '100'
+    title: "Maintain safe work area to avoid common accidents and injuries."
+    modality: [attest]
+  - id: '201'
+    section: '200'
+    title: "Categorize storage devices and backup media."
+    modality: [recall]
+  - id: '202'
+    section: '200'
+    title: "Categorize the different types of computer cases."
+    modality: [recall]
+  - id: '203'
+    section: '200'
+    title: "Explain motherboard components, types, and features."
+    modality: [recall]
+  - id: '204'
+    section: '200'
+    title: "Categorize power supplies types and characteristics."
+    modality: [recall]
+  - id: '205'
+    section: '200'
+    title: "Explain the purpose and characteristics of CPUs and their features."
+    modality: [recall]
+  - id: '206'
+    section: '200'
+    title: "Explain cooling methods and devices."
+    modality: [recall]
+  - id: '207'
+    section: '200'
+    title: "Compare and contrast memory types, characteristics, and their purpose."
+    modality: [recall]
+  - id: '208'
+    section: '200'
+    title: "Distinguish between the different display devices and their characteristics."
+    modality: [recall]
+  - id: '209'
+    section: '200'
+    title: "Summarize the function and types of adapter cards."
+    modality: [recall]
+  - id: '210'
+    section: '200'
+    title: "Install and configure peripherals and input devices."
+    modality: [attest]
+  - id: '211'
+    section: '200'
+    title: "Configure and optimize portable devices, such as laptops, tablets, and smart devices."
+    modality: [attest]
+  - id: '212'
+    section: '200'
+    title: "Install and configure printers."
+    modality: [attest]
+  - id: '213'
+    section: '200'
+    title: "Install configure and maintain personal computer components."
+    modality: [attest]
+  - id: '214'
+    section: '200'
+    title: "Repair/replace desktop and laptop computer components."
+    modality: [attest]
+  - id: '215'
+    section: '200'
+    reserved: true
+    title: null
+    modality: []
+  - id: '216'
+    section: '200'
+    title: "Implement RAID solutions."
+    modality: [attest]
+  - id: '301'
+    section: '300'
+    title: "Apply industry standard troubleshooting methods."
+    modality: [recall, artifact]
+  - id: '302'
+    section: '300'
+    title: "Troubleshoot common hardware and operating system symptoms and their causes."
+    modality: [attest]
+  - id: '303'
+    section: '300'
+    reserved: true
+    title: null
+    modality: []
+  - id: '304'
+    section: '300'
+    title: "Identify common laptop issues and determine the appropriate basic troubleshooting method."
+    modality: [attest]
+  - id: '305'
+    section: '300'
+    title: "Integrate common preventative maintenance techniques."
+    modality: [attest]
+  - id: '306'
+    section: '300'
+    reserved: true
+    title: null
+    modality: []
+  - id: '307'
+    section: '300'
+    title: "Diagnose and repair common printer issues."
+    modality: [attest]
+  - id: '401'
+    section: '400'
+    title: "Identify different operating systems by their features."
+    modality: [recall]
+  - id: '402'
+    section: '400'
+    title: "Use various user interfaces."
+    modality: [host]
+  - id: '403'
+    section: '400'
+    title: "Install and configure an operating system."
+    modality: [attest, host]
+  - id: '404'
+    section: '400'
+    title: "Explain boot sequences, methods, and startup utilities for various operating systems."
+    modality: [recall]
+  - id: '405'
+    section: '400'
+    title: "Select the appropriate commands and options to troubleshoot and resolve problems."
+    modality: [host]
+  - id: '406'
+    section: '400'
+    title: "Differentiate between various operating system directory structures."
+    modality: [host, recall]
+  - id: '407'
+    section: '400'
+    title: "Use system utilities/tools and evaluate the results."
+    modality: [host]
+  - id: '408'
+    section: '400'
+    title: "Troubleshoot common OS and software issues."
+    modality: [host]
+  - id: '409'
+    section: '400'
+    title: "Manage local users, groups, and institute local security policies."
+    modality: [host]
+  - id: '410'
+    section: '400'
+    title: "Install and configure a network and workstation operating system."
+    modality: [attest, host]
+  - id: '501'
+    section: '500'
+    title: "Explain the function of common networking protocols, such as FTP, TCP/IP suite, DHCP, DNS."
+    modality: [recall]
+  - id: '502'
+    section: '500'
+    title: "Identify commonly used TCP and UDP default ports, including TCP ports: FTP – 20, 21, SSH – 22, TELNET – 23, HTTP – 80."
+    modality: [recall]
+  - id: '503'
+    section: '500'
+    title: "Identify address formats, including IPv6, IPv4, MAC."
+    modality: [recall]
+  - id: '504'
+    section: '500'
+    title: "Evaluate the proper use of addressing technologies and addressing schemes, including: subnetting: classful vs. classless, NAT, PAT, SNAT, public vs. private, DHCP, addressing schemes (unicast, multicast, broadcast)."
+    modality: [recall]
+  - id: '505'
+    section: '500'
+    title: "Identify common IPv4 and IPv6 routing protocols, including link state, distance vector, and hybrid protocols."
+    modality: [recall]
+  - id: '506'
+    section: '500'
+    title: "Explain the purpose and properties of routing, including IGP vs. EGP, static vs. dynamic, next hop, interpret routing tables and how they pertain to path selection, convergence (steady state)."
+    modality: [rack, recall]
+  - id: '507'
+    section: '500'
+    title: "Identify the characteristics of wireless communication, including 802.11 and 802.15 standards: speeds, distance, channels, frequency, authentication, and encryption."
+    modality: [recall]
+  - id: '508'
+    section: '500'
+    title: "Identify the basic elements of unified communication technology, such as VoIP, video, real time services, POS, and UC devices"
+    modality: [recall]
+  - id: '509'
+    section: '500'
+    title: "Implement technologies that support cloud computing."
+    modality: [recall]
+  - id: '510'
+    section: '500'
+    title: "Implement virtualization technologies."
+    modality: [host, recall]
+  - id: '601'
+    section: '600'
+    title: "Categorize standard cable types and their properties, e.g., UTP, STP, coaxial, fiber; plenum vs. non-plenum properties: transmission speeds, distance, duplex, noise immunity, frequency."
+    modality: [recall]
+  - id: '602'
+    section: '600'
+    title: "Identify common connector types, including UTP, STP, coaxial, and fiber."
+    modality: [recall]
+  - id: '603'
+    section: '600'
+    title: "Identify common physical network topologies."
+    modality: [recall]
+  - id: '604'
+    section: '600'
+    title: "Differentiate and fabricate cables according to TIA/EIA 568A and 568B standards, including patch, crossover, and rollover cables."
+    modality: [attest]
+  - id: '605'
+    section: '600'
+    title: "Categorize common WAN technology types and properties."
+    modality: [recall]
+  - id: '606'
+    section: '600'
+    title: "Categorize common LAN technology types and ethernet properties, e.g., CSMA/CD, broadcast, collision, bonding, speed, distance."
+    modality: [recall]
+  - id: '607'
+    section: '600'
+    title: "Explain common logical network topologies and their characteristics, including peer to peer and client/server."
+    modality: [recall]
+  - id: '608'
+    section: '600'
+    title: "Install components of wiring distribution, including vertical and horizontal cross connects, verify installation and termination and environmental requirements."
+    modality: [attest]
+  - id: '701'
+    section: '700'
+    title: "Install, configure, and differentiate between common network connectivity devices."
+    modality: [rack]
+  - id: '702'
+    section: '700'
+    title: "Identify the functions of specialized network devices, such as multilayer switch, content switch, IDS/IPS, load balancer, multifunction network devices, DNS server, bandwidth shaper, proxy server, CSU/DSU."
+    modality: [recall]
+  - id: '703'
+    section: '700'
+    title: "Explain the advanced features of a switch, such as PoE, spanning tree, VLAN, trunking, port mirroring, port authentication."
+    modality: [rack]
+  - id: '704'
+    section: '700'
+    title: "Install a basic wireless network, including client configuration, access point placement and installation."
+    modality: [attest]
+    not_taught: "no WAP in lab inventory"
+  - id: '705'
+    section: '700'
+    title: "Configure appropriate encryption, configure channels and frequencies, set ESSID and beacon, and verify installation."
+    modality: [attest]
+    not_taught: "no WAP in lab inventory"
+  - id: '801'
+    section: '800'
+    title: "Explain, compare, and contrast the layers of the TCP/IP and OSI models."
+    modality: [recall]
+  - id: '802'
+    section: '800'
+    title: "Prepare physical and logical network diagrams, baselines, policies, procedures, and configurations and regulations."
+    modality: [artifact]
+  - id: '803'
+    section: '800'
+    title: "Evaluate the network based on configuration management documentation, such as wiring schematics; physical and logical network diagrams; baselines; policies, procedures, and configurations to network devices and infrastructure; wiring schematics; physical and logical network diagrams; and configurations and job logs."
+    modality: [artifact]
+  - id: '804'
+    section: '800'
+    title: "Conduct network monitoring to identify performance and connectivity issues, such as packet sniffers, connectivity software, load testing, throughput testers, system logs, history logs, and event logs."
+    modality: [artifact, rack]
+  - id: '805'
+    section: '800'
+    reserved: true
+    title: null
+    modality: []
+  - id: '806'
+    section: '800'
+    title: "Implement remote management technologies."
+    modality: [rack]
+  - id: '901'
+    section: '900'
+    title: "Utilize command line/graphical tools and interpret the output to verify functionality including, Traceroute, Ipconfig, Ifconfig, and Ping."
+    modality: [rack, host]
+  - id: '902'
+    section: '900'
+    title: "Use network scanners, such as packet sniffers, intrusion detection software, Intrusion prevention software, and port scanners."
+    modality: [artifact, host]
+  - id: '903'
+    section: '900'
+    title: "Utilize the appropriate hardware tools for cable fabrication and troubleshooting."
+    modality: [attest]
+  - id: '904'
+    section: '900'
+    title: "Implement network troubleshooting methodologies, including information gathering – identify symptoms and problems, identify the affected areas of the network."
+    modality: [rack, artifact]
+  - id: '905'
+    section: '900'
+    title: "Develop an action plan and solution identifying potential effects, implement and test the solution, identify the results and effects of the solution, document the solution, and the entire process."
+    modality: [artifact]
+  - id: '906'
+    section: '900'
+    title: "Troubleshoot common wired and wireless connectivity issues and select an appropriate solution to include physical and logical issues."
+    modality: [rack]
+  - id: '907'
+    section: '900'
+    title: "Troubleshoot and resolve common WAN issues, such as loss of connectivity, DNS, router configurations, and default gateways."
+    modality: [rack]
+  - id: '1001'
+    section: '1000'
+    title: "Configure hardware and software security devices, such as network-based firewall, host-based firewall, DMZ, IDS, IPS, VPN concentrator."
+    modality: [rack]
+  - id: '1002'
+    section: '1000'
+    title: "Implement features of a network firewall, such as application layer vs. network layer, stateful vs. stateless, scanning services, content filtering, signature identification, zones."
+    modality: [rack, recall]
+  - id: '1003'
+    section: '1000'
+    title: "Configure network access security, such as ACL: MAC filtering, IP filtering tunneling and encryption: SSL VPN, VPN, L2TP, PPTP and related others."
+    modality: [rack]
+  - id: '1004'
+    section: '1000'
+    title: "Differentiate the principals of user authentication, such as PKI, Kerberos, AAA: RADIUS, TACACS+, network access control: 802.1x, CHAP, MS-CHAP, EAP."
+    modality: [recall, rack]
+  - id: '1005'
+    section: '1000'
+    title: "Evaluate issues that affect device security, such as physical security and network access."
+    modality: [recall]
+  - id: '1006'
+    section: '1000'
+    title: "Identify and mitigate common security threats."
+    modality: [recall]
+  - id: '1007'
+    section: '1000'
+    title: "Demonstrate security features, including BIOS security, password management, locking workstations, and biometrics."
+    modality: [host, attest]
+  - id: '1008'
+    section: '1000'
+    title: "Demonstrate basic forensic concepts, such as incident response, chain of custody, evidence preservation, and documentation."
+    modality: [artifact, recall]
+  - id: '1101'
+    section: '1100'
+    title: "Use effective communication with customers, such as proper etiquette, active listening, and cultural sensitivity."
+    modality: [attest]
+  - id: '1102'
+    section: '1100'
+    title: "Solve customer problems."
+    modality: [attest]
+  - id: '1103'
+    section: '1100'
+    title: "Implement and adhere to acceptable use policies."
+    modality: [recall]
+  - id: '1104'
+    section: '1100'
+    title: "Maintain customer confidentiality."
+    modality: [recall]
+  - id: '1105'
+    section: '1100'
+    title: "Maintain asset inventory."
+    modality: [artifact]

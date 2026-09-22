@@ -1,0 +1,419 @@
+# PM Class Year Plan - Networking track (CompTIA Network+), 2026-2027.
+#
+# GENERATED FILE - do not hand-edit.
+# Regenerate with: python3 tools/build_calendar.py
+#
+# `standards` resolves the plan's Std. column to CIP 11.0901 task ids.
+# NOCTI dates are PLACEHOLDERS pending the testing coordinator.
+
+year: '2026-2027'
+track: networking
+certification: CompTIA Network+ (N10-009)
+
+trimesters:
+  '1':
+    start: 2026-08-20
+    end: 2026-11-13
+    student_days: 59
+  '2':
+    start: 2026-11-16
+    end: 2027-02-26
+    student_days: 60
+  '3':
+    start: 2027-03-01
+    end: 2027-05-28
+    student_days: 63
+
+# Both NOCTI exams assess the FULL CIP 11.0901 grid, not just this track.
+# These are the retention targets the review scheduler works backward from.
+nocti:
+  practical:
+    window_start: 2027-03-15
+    window_end: 2027-03-19
+    placeholder: true
+  written:
+    window_start: 2027-04-19
+    window_end: 2027-04-23
+    placeholder: true
+
+weeks:
+  - trimester: '1'
+    week: "1"
+    start: 2026-08-20
+    end: 2026-08-21
+    dates_label: "Aug 20–21"
+    focus: "Orientation & Pathway Intro"
+    standards: []
+    activity: "Syllabus, NOCTI overview, lab/workstation assignments"
+    notes: "Short first week (2 days)"
+  - trimester: '1'
+    week: "2"
+    start: 2026-08-24
+    end: 2026-08-28
+    dates_label: "Aug 24–28"
+    focus: "Safety Unit + Mod 1 Unit 1: OSI Model, Appliances & Functions"
+    standards: ['801', '701', '702']
+    activity: "Shop/PPE, cabling & electrical/PoE safety, ESD practice; Intro to the OSI Model (Ascend Lab 1.1.1)"
+    notes: "T1 required safety unit — not from Ascend"
+  - trimester: '1'
+    week: "3"
+    start: 2026-08-31
+    end: 2026-09-04
+    dates_label: "Aug 31–Sep 4"
+    focus: "Mod 1 Unit 1 finish"
+    standards: ['801']
+    activity: "OSI model application exercises; Quiz 1.1"
+  - trimester: '1'
+    week: "4"
+    start: 2026-09-07
+    end: 2026-09-11
+    dates_label: "Sep 7–11"
+    focus: "Mod 1 Unit 2: Cloud Concepts & Connectivity"
+    standards: ['509']
+    activity: "Virtual network concepts, cloud concepts (Ascend Labs 1.2.1–1.2.2)"
+    notes: "4-day week (Labor Day off)"
+  - trimester: '1'
+    week: "5"
+    start: 2026-09-14
+    end: 2026-09-18
+    dates_label: "Sep 14–18"
+    focus: "Mod 1 Unit 2 finish; Mod 1 Unit 3 begins: Ports, Protocols & Services"
+    standards: ['501', '502']
+    activity: "IP addressing solutions (Ascend Lab 1.3.1); Quiz 1.2"
+  - trimester: '1'
+    week: "6"
+    start: 2026-09-21
+    end: 2026-09-25
+    dates_label: "Sep 21–25"
+    focus: "Mod 1 Unit 3 finish"
+    standards: ['501', '502']
+    activity: "Network services/protocols (Ascend Lab 1.3.2); Quiz 1.3 — Module 1 complete"
+  - trimester: '1'
+    week: "7"
+    start: 2026-09-28
+    end: 2026-10-02
+    dates_label: "Sep 28–Oct 2"
+    focus: "Mod 2 Unit 1: Transmission Media, Transceivers & Topologies"
+    standards: ['601', '602', '603']
+    ccna_labs: ['1-1', '1-2']
+    activity: "Topologies & characteristics (Ascend Lab 2.1.1) + CCNA Lab 1-1 Identifying Router Components & 1-2 Router Connectivity"
+  - trimester: '1'
+    week: "8"
+    start: 2026-10-05
+    end: 2026-10-09
+    dates_label: "Oct 5–9"
+    focus: "Mod 2 Unit 1 finish"
+    standards: ['601', '602', '603']
+    ccna_labs: ['1-3']
+    activity: "Cable/transceiver ID stations; Quiz 2.1 + CCNA Lab 1-3 Identify Router & Switch IOS"
+    notes: "Progress Report Pick-Up Oct 8–9"
+  - trimester: '1'
+    week: "9"
+    start: 2026-10-12
+    end: 2026-10-16
+    dates_label: "Oct 12–16"
+    focus: "Mod 2 Unit 2: IPv4 Addressing & Modern Network Environments"
+    standards: ['503', '504']
+    ccna_labs: ['11-1', '11-2']
+    activity: "Load balancing & NIC teaming (Ascend Lab 2.2.1) + CCNA Lab 11-1 IPv6 Link-Local & 11-2 EUI-64 Addressing"
+  - trimester: '1'
+    week: "10"
+    start: 2026-10-19
+    end: 2026-10-23
+    dates_label: "Oct 19–23"
+    focus: "Mod 2 Unit 2 finish"
+    standards: ['503', '504']
+    ccna_labs: ['11-3', '11-4']
+    activity: "Subnetting practice; Quiz 2.2 + CCNA Lab 11-3 IPv6 Site-Local & 11-4 Global Addressing"
+    notes: "3-day week (10/19–20 teachers only)"
+  - trimester: '1'
+    week: "11"
+    start: 2026-10-26
+    end: 2026-10-30
+    dates_label: "Oct 26–30"
+    focus: "Mod 2 Unit 3: Routing & Switching Technologies"
+    standards: ['505', '506', '703']
+    ccna_labs: ['4-1', '7-2']
+    activity: "Routing concepts/protocols (Ascend Lab 2.3.1) + CCNA Lab 4-1 Static Routing & 7-2 Switching/VLAN Introduction"
+  - trimester: '1'
+    week: "12"
+    start: 2026-11-02
+    end: 2026-11-06
+    dates_label: "Nov 2–6"
+    focus: "Mod 2 Unit 3 finish"
+    standards: ['505', '506', '703']
+    ccna_labs: ['4-2', '7-3']
+    activity: "Switching features config (Ascend Lab 2.3.2); Quiz 2.3 — Module 2 complete + CCNA Lab 4-2 Default Routing & 7-3 Trunking"
+  - trimester: '1'
+    week: "13"
+    start: 2026-11-09
+    end: 2026-11-13
+    dates_label: "Nov 9–13"
+    focus: "Trimester 1 Review"
+    standards: []
+    flags: [cumulative]
+    ccna_labs: ['2-1', '2-2', '2-3', '2-4', '7-1']
+    activity: "Cumulative review — Modules 1–2 (OSI, cloud, ports/protocols, media, IP, routing/switching) + CCNA router admin labs 2-1 Passwords/Recovery, 2-2 Login/Banners, 2-3 Password Encryption, 2-4 Exec Timeout, 7-1 Switch Password Recovery"
+    notes: "End of Trimester 1 — Nov 13"
+  - trimester: '2'
+    week: "1"
+    start: 2026-11-16
+    end: 2026-11-20
+    dates_label: "Nov 16–20"
+    focus: "Mod 3 Unit 1: Wireless Network Devices & Technologies"
+    standards: ['507']
+    ccna_labs: ['5-1']
+    activity: "SOHO wireless device config (Ascend Lab 3.1.1) + CCNA Lab 5-1 RIPv2 Routing"
+  - trimester: '2'
+    week: "2"
+    start: 2026-11-23
+    end: 2026-11-27
+    dates_label: "Nov 23–27"
+    focus: "Mod 3 Unit 1 finish"
+    standards: ['507']
+    ccna_labs: ['5-1']
+    activity: "Wireless standards comparison; Quiz 3.1 + CCNA Lab 5-1 RIPv2 Routing (cont./troubleshoot)"
+    notes: "Short Thanksgiving week (3 days)"
+  - trimester: '2'
+    week: "3"
+    start: 2026-11-30
+    end: 2026-12-04
+    dates_label: "Nov 30–Dec 4"
+    focus: "Mod 3 Unit 2: Physical Installations"
+    standards: ['608']
+    ccna_labs: ['6-1']
+    activity: "Structured cabling project kickoff + CCNA Lab 6-1 OSPF Routing"
+  - trimester: '2'
+    week: "4"
+    start: 2026-12-07
+    end: 2026-12-11
+    dates_label: "Dec 7–11"
+    focus: "Mod 3 Unit 2 finish"
+    standards: ['608']
+    ccna_labs: ['6-2']
+    activity: "Cabling project continued; Quiz 3.2 — Module 3 complete + CCNA Lab 6-2 Multi-Area OSPF Routing"
+  - trimester: '2'
+    week: "5"
+    start: 2026-12-14
+    end: 2026-12-18
+    dates_label: "Dec 14–18"
+    focus: "Midterm Exam + Review"
+    standards: []
+    flags: [cumulative]
+    activity: "Network+ Midterm Exam (covers Modules 1–3)"
+  - trimester: '2'
+    week: "6"
+    start: 2026-12-21
+    end: 2026-12-22
+    dates_label: "Dec 21–22"
+    focus: "Safety Refresher + Review / Cabling Project Workday"
+    standards: []
+    flags: [section_refresher:100]
+    activity: "Short safety refresher; shop cleanup, cabling project catch-up"
+    notes: "T2 required safety touch-point; “useless” 2-day week before break"
+  - trimester: '2'
+    week: "—"
+    start: 2026-12-23
+    end: 2027-01-01
+    dates_label: "Dec 23–Jan 1"
+    focus: "WINTER BREAK"
+    standards: []
+    activity: "—"
+    notes: "No school"
+    is_break: true
+  - trimester: '2'
+    week: "7"
+    start: 2027-01-04
+    end: 2027-01-08
+    dates_label: "Jan 4–8"
+    focus: "Mod 4 Unit 1: Org Processes, Procedures & Documentation"
+    standards: ['802', '803']
+    ccna_labs: ['7-5', '7-6']
+    activity: "Documentation standards review + CCNA Lab 7-5 Spanning Tree Protocol & 7-6 Rapid STP"
+  - trimester: '2'
+    week: "8"
+    start: 2027-01-11
+    end: 2027-01-15
+    dates_label: "Jan 11–15"
+    focus: "Mod 4 Unit 1 finish; Mod 4 Unit 2 begins: Monitoring & DR"
+    standards: ['804', '802']
+    ccna_labs: ['7-7', '7-8']
+    activity: "Device monitoring (Ascend Lab 4.2.1); Quiz 4.1 + CCNA Lab 7-7 Per-VLAN STP & 7-8 Inter-VLAN Routing"
+  - trimester: '2'
+    week: "9"
+    start: 2027-01-18
+    end: 2027-01-22
+    dates_label: "Jan 18–22"
+    focus: "Mod 4 Unit 2 finish"
+    standards: ['804']
+    ccna_labs: ['7-9', '7-10', '7-11', '7-12', '7-13', '7-14']
+    activity: "HA/disaster recovery concepts (Ascend Lab 4.2.2); Quiz 4.2 + CCNA Lab 7-9–7-12 EtherChannel (Link/PAgP/LACP/PortChannel) & 7-13/7-14 Port Security/SPAN"
+  - trimester: '2'
+    week: "10"
+    start: 2027-01-25
+    end: 2027-01-29
+    dates_label: "Jan 25–29"
+    focus: "Mod 4 Unit 3: Network Services, Access & Management"
+    standards: ['501', '806']
+    ccna_labs: ['9-1', '9-2', '9-3', '9-4']
+    activity: "DHCP/DNS/NTP server config (Ascend Labs 4.3.1–4.3.3) + CCNA Lab 9-1 CDP, 9-2 LLDP, 9-3 DHCP/Relay, 9-4 DNS"
+    notes: "4-day week (Jan 29 no school)"
+  - trimester: '2'
+    week: "11"
+    start: 2027-02-01
+    end: 2027-02-05
+    dates_label: "Feb 1–5"
+    focus: "Mod 4 Unit 3 finish"
+    standards: ['806', '901']
+    ccna_labs: ['9-5', '9-6', '9-7', '9-8', '9-9']
+    activity: "Remote access/management (Ascend Lab 4.3.4); Quiz 4.3 — Module 4 complete + CCNA Lab 9-5 NTP, 9-6 Remote Syslog, 9-7 NetFlow, 9-8 HSRP/VRRP, 9-9 SNMP"
+  - trimester: '2'
+    week: "12"
+    start: 2027-02-08
+    end: 2027-02-12
+    dates_label: "Feb 8–12"
+    focus: "Mod 5 Unit 1: Network Security Concepts"
+    standards: ['1001']
+    ccna_labs: ['8-1', '8-2']
+    activity: "Security fundamentals (Ascend Lab 5.1.1) + CCNA Lab 8-1 Standard ACL & 8-2 Extended ACL"
+  - trimester: '2'
+    week: "13"
+    start: 2027-02-15
+    end: 2027-02-19
+    dates_label: "Feb 15–19"
+    focus: "Mod 5 Unit 1 finish; Mod 5 Unit 2 begins: Attacks & Defense"
+    standards: ['1001', '1006']
+    ccna_labs: ['8-3', '8-4']
+    activity: "Quiz 5.1; general network attacks (Ascend Lab 5.2.1) + CCNA Lab 8-3 Named ACL & 8-4 IPv6 Access-list"
+    notes: "4-day week (Feb 19 no school)"
+  - trimester: '2'
+    week: "14"
+    start: 2027-02-22
+    end: 2027-02-26
+    dates_label: "Feb 22–26"
+    focus: "Mod 5 Unit 2 finish"
+    standards: ['1002', '1006']
+    ccna_labs: ['8-5', '8-6', '8-7']
+    activity: "Hardening techniques (Ascend Lab 5.2.2); Quiz 5.2 — Module 5 complete + CCNA Lab 8-5 Trusted Hosts, 8-6 Controlling VTY Access, 8-7 AAA Authentication"
+    notes: "End of Trimester 2 — Feb 26"
+  - trimester: '3'
+    week: "1"
+    start: 2027-03-01
+    end: 2027-03-05
+    dates_label: "Mar 1–5"
+    focus: "Safety Refresher + Mod 6 Unit 1: Troubleshooting Methodology"
+    standards: ['904', '905']
+    flags: [section_refresher:100]
+    ccna_labs: ['3-1']
+    activity: "Short safety refresher (cyber-safety/data handling + shop); structured troubleshooting approach, change mgmt docs (Ascend Labs 6.1.1–6.1.2) + CCNA Lab 3-1 Terminal Server Setup"
+    notes: "T3 required safety touch-point"
+  - trimester: '3'
+    week: "2"
+    start: 2027-03-08
+    end: 2027-03-12
+    dates_label: "Mar 8–12"
+    focus: "Mod 6 Unit 1 finish; NOCTI Practical Prep begins"
+    standards: ['904', '905']
+    ccna_labs: ['10-1']
+    activity: "Quiz 6.1; hands-on skills review — cabling, config, troubleshooting stations + CCNA Lab 10-1 Static Inside Source NAT"
+    notes: "4-day week (Mar 12 no school)"
+  - trimester: '3'
+    week: "3"
+    start: 2027-03-15
+    end: 2027-03-19
+    dates_label: "Mar 15–19"
+    focus: "NOCTI Practical Exam (placeholder)"
+    standards: []
+    flags: [cumulative]
+    activity: "NOCTI practical assessment — confirm exact date with your coordinator"
+    notes: "Placeholder window — update once date is confirmed"
+  - trimester: '3'
+    week: "4"
+    start: 2027-03-22
+    end: 2027-03-26
+    dates_label: "Mar 22–26"
+    focus: "Mod 6 Unit 2: Troubleshooting Cabling, Interfaces & Services"
+    standards: ['906']
+    ccna_labs: ['10-2']
+    activity: "Common networking issues troubleshooting (Ascend Lab 6.2.1) + CCNA Lab 10-2 Dynamic NAT"
+  - trimester: '3'
+    week: "5"
+    start: 2027-03-29
+    end: 2027-04-02
+    dates_label: "Mar 29–Apr 2"
+    focus: "Mod 6 Unit 2 finish; Unit 3: Performance, Tools & Protocols"
+    standards: ['804', '901', '902']
+    ccna_labs: ['10-3', '7-15']
+    activity: "Quiz 6.2; network analysis software & CLI tools (Ascend Labs 6.3.1–6.3.2) + CCNA Lab 10-3 NAT Overload (PAT) & 7-15 Switch IOS Recovery with Xmodem (optional/time-permitting)"
+  - trimester: '3'
+    week: "6"
+    start: 2027-04-05
+    end: 2027-04-09
+    dates_label: "Apr 5–9"
+    focus: "Mod 6 Unit 3 finish + Final Exam"
+    standards: []
+    flags: [cumulative]
+    activity: "Quiz 6.3 — Module 6 & all Network+ content complete; Network+ Final Exam"
+  - trimester: '3'
+    week: "7"
+    start: 2027-04-12
+    end: 2027-04-16
+    dates_label: "Apr 12–16"
+    focus: "NOCTI Written Prep"
+    standards: []
+    flags: [cumulative]
+    activity: "Cumulative CIP 11.0901 review, practice tests by domain"
+  - trimester: '3'
+    week: "8"
+    start: 2027-04-19
+    end: 2027-04-23
+    dates_label: "Apr 19–23"
+    focus: "NOCTI Written Exam (placeholder)"
+    standards: []
+    flags: [cumulative]
+    activity: "NOCTI written assessment — confirm exact date with your coordinator"
+    notes: "4-day week (Apr 23 no school); placeholder window"
+  - trimester: '3'
+    week: "9"
+    start: 2027-04-26
+    end: 2027-04-30
+    dates_label: "Apr 26–30"
+    focus: "Capstone Network Build (1/2)"
+    standards: []
+    flags: [cumulative]
+    activity: "Design a topology, configure IP/routing/switching, deploy wireless"
+  - trimester: '3'
+    week: "10"
+    start: 2027-05-03
+    end: 2027-05-07
+    dates_label: "May 3–7"
+    focus: "Capstone Network Build (2/2)"
+    standards: []
+    flags: [cumulative]
+    activity: "Security hardening, documentation, presentations"
+  - trimester: '3'
+    week: "11"
+    start: 2027-05-10
+    end: 2027-05-14
+    dates_label: "May 10–14"
+    focus: "Career Readiness / Cert Study"
+    standards: ['1101', '1102', '1103', '1104']
+    activity: "Resume/portfolio work; Network+ N10-009 practice if pursuing the real cert"
+  - trimester: '3'
+    week: "12"
+    start: 2027-05-17
+    end: 2027-05-21
+    dates_label: "May 17–21"
+    focus: "Flex / Enrichment"
+    standards: []
+    activity: "State testing conflicts, career exploration"
+    notes: "Confirm which cohort's “last day” May 21 marks"
+  - trimester: '3'
+    week: "13"
+    start: 2027-05-24
+    end: 2027-05-28
+    dates_label: "May 24–28"
+    focus: "Wind-Down"
+    standards: []
+    activity: "Shop cleanup, equipment reset, evaluations"
+    notes: "Last day of school — May 28"
