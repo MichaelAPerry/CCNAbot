@@ -1,0 +1,41 @@
+# Standard CertificationKits CCNA Premium Lab Kit, as deployed at Lenape.
+# One of these per rack; `console.serial` is filled in per rack PC from the
+# FTDI adapter plugged into that device (see tools/gen_udev.py).
+#
+# Six devices, six console cables, one powered USB hub.
+
+model: certificationkits-ccna-premium
+devices:
+  - name: R1
+    role: router
+    model: Cisco 1941
+    platform: cisco_ios
+    notes: ISR G2, HWIC-2A/S
+
+  - name: R2
+    role: router
+    model: Cisco 2811
+    platform: cisco_ios
+    notes: ISR G1, WIC-2A/S
+
+  - name: R3
+    role: router
+    model: Cisco 2811
+    platform: cisco_ios
+    notes: ISR G1, WIC-2A/S
+
+  - name: SW1
+    role: switch_l3
+    model: Cisco 3750v2-24PS
+    platform: cisco_ios
+    notes: Layer 3, PoE. Inter-VLAN routing and EtherChannel labs.
+
+  - name: SW2
+    role: switch_l2
+    model: Cisco 2960-24TT-L
+    platform: cisco_ios
+
+  - name: SW3
+    role: switch_l2
+    model: Cisco 2960-24TT-L
+    platform: cisco_ios
