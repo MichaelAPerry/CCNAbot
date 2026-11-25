@@ -1,15 +1,12 @@
 # CCNAbot
 
-A rack assistant for a CCNA / CompTIA Network+ lab.
+A Python prototype for a CCNA and CompTIA Network+ classroom lab. The current
+checkout models a course calendar, competency evidence and instructor sign-off,
+and includes a subnetting drill. The proposed deployment puts a Linux PC at each
+rack with separate sessions for the lab equipment and the assistant.
 
-One instance runs on the Linux PC in each of eight racks. Students SSH in and
-work in two sessions side by side: a console into the lab gear, and this.
-
-**The instructor keeps the judgement.** The bot observes, scaffolds and
-reports what it saw. It does not grade, does not decide proficiency, and does
-not sign anything. Where the state competency form needs an (X), that mark
-comes from an instructor attestation — evidence the bot gathered can *suggest*
-a task is ready for sign-off, but never applies one itself.
+The instructor decides proficiency and signs the competency form. The assistant
+records evidence that can inform that decision.
 
 ## Status
 
